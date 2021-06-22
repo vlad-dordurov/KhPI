@@ -15,14 +15,12 @@ export const Layout = ({ children }) => {
       {isAuthorized && <Header />}
       <div className="layout">
         {isAuthorized && <NavBar />}
-        <div className="layout-content">
-          {children}
-        </div>
+        <div className="layout-content">{children}</div>
       </div>
     </>
   );
 };
 
 Layout.propTypes = {
-  children: node
+  children: node,
 };

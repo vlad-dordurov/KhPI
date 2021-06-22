@@ -8,7 +8,6 @@ import {
 
 export const authenticationUser = (email, password) => async (dispatch) => {
   try {
-
     //use this when backend will be ready
     // const userData = await axios.post('auth/signin', {
     //   email,
@@ -16,7 +15,7 @@ export const authenticationUser = (email, password) => async (dispatch) => {
     // });
 
     //mock data
-    const userData = { token: 'mockData' }
+    const userData = { token: 'mockData' };
 
     dispatch({
       type: AUTH_USER,

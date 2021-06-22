@@ -10,43 +10,36 @@ export const navConfig = [
   {
     route: '/schedule',
     Icon: IconShedule,
-    iconWidth: 35,
-    name: 'Расписание'
+    name: 'Расписание',
   },
   {
     route: '/news',
     Icon: IconNews,
-    iconWidth: 30,
-    name: 'Новости'
+    name: 'Новости',
   },
   {
     route: '/notifications',
     Icon: IconNotifications,
-    iconWidth: 33,
-    name: 'Объявления'
+    name: 'Объявления',
   },
   {
     route: '/dvv',
     Icon: IconDvv,
-    iconWidth: 22,
-    name: 'ДВВ'
+    name: 'ДВВ',
   },
   {
     route: '/dualeducation',
     Icon: IconDualEducation,
-    iconWidth: 53,
-    name: 'Дуальное обучение'
+    name: 'Дуальное обучение',
   },
   {
     route: '/project',
     Icon: Project,
-    iconWidth: 43,
-    name: 'Проектное обучение'
+    name: 'Проектное обучение',
   },
   {
     route: '/documentation',
     Icon: IconDocumentation,
-    iconWidth: 27,
-    name: 'Справки'
-  }
-]
+    name: 'Справки',
+  },
+];

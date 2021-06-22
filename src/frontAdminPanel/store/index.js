@@ -10,4 +10,3 @@ export const store =
     : createStore(reducers, applyMiddleware(thunk));
 
 export const persisted = persistStore(store);
-

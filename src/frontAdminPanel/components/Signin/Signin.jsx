@@ -56,17 +56,31 @@ export const Signin = () => {
             <form onSubmit={handleSubmit} className="signin-form">
               <Field name="email">
                 {({ input }) => (
-                  <input {...input} type="text" placeholder="Введите вашу почту" className="signin-input"/>
+                  <input
+                    {...input}
+                    type="text"
+                    placeholder="Введите вашу почту"
+                    className="signin-input"
+                  />
                 )}
               </Field>
               <Field name="password">
                 {({ input }) => (
-                  <input {...input} type="password" placeholder="Введите пароль" className="signin-input"/>
+                  <input
+                    {...input}
+                    type="password"
+                    placeholder="Введите пароль"
+                    className="signin-input"
+                  />
                 )}
               </Field>
-                <button type="submit" disabled={submitting} className="signin-button">
-                  Войти
-                </button>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="signin-button"
+              >
+                Войти
+              </button>
             </form>
           )}
         />

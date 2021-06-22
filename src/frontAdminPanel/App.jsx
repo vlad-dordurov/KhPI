@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
@@ -13,11 +13,11 @@ export const App = () => {
   return (
     <Provider store={store}>
       <PersistGate persistor={persisted}>
-      <Router>
-        <Layout>
-          <AppRouter />
-        </Layout>
-      </Router>
+        <Router>
+          <Layout>
+            <AppRouter />
+          </Layout>
+        </Router>
       </PersistGate>
     </Provider>
   );

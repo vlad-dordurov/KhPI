@@ -1,15 +1,17 @@
-import { AUTH_USER, LOGOUT, INCORRECT_USER_DATA, CLEANING_INCORRECT_USER_DATA } from './actionTypes.js';
+import {
+  AUTH_USER,
+  LOGOUT,
+  INCORRECT_USER_DATA,
+  CLEANING_INCORRECT_USER_DATA,
+} from './actionTypes.js';
 
 const initialState = {
   isAuthorized: false,
   token: null,
-  incorrectData: null
+  incorrectData: null,
 };
 
-export const authReducer = (
-  state = initialState,
-  action
-) => {
+export const authReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
