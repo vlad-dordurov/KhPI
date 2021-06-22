@@ -5,6 +5,6 @@ const app = new Koa();
 
 const PORT = process.env.PORT || 3000;
 
-app.use(koaStatic(path.join(__dirname, "..", "..", "build")));
+app.use(koaStatic(path.join(__dirname, '..', '..', 'build')));
 
 app.listen(PORT);

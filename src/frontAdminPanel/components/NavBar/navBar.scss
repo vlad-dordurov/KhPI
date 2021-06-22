@@ -1,0 +1,61 @@
+.navBar {
+  height: calc(100vh - 70px);
+  position: relative;
+  left: 0;
+  z-index: 1;
+  background-color: #A11A16;
+
+  &--active {
+    width: 220px;
+    transition: .2s;
+  }
+  
+  &--inactive {
+    width: 70px;
+    transition: .2s;
+  }
+}
+
+.navItem {
+  .navLink {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      background-color: rgba(120, 19, 16);
+      transition: 0.2s;
+    }
+
+    &--selected {
+      background-color: rgba(120, 19, 16);
+    }
+
+    .navLink-icon {
+      display: flex;
+      justify-content: center;
+      width: 70px;
+    }
+  }
+
+  .navLink-text {
+    position: absolute;
+    white-space: nowrap;
+
+    &--active {
+      left: 70px;
+      opacity: 1;
+      transition: .2s;
+    }
+  
+    &--inactive {
+      left: 0;
+      opacity: 0;
+      transition: .1s;
+    }
+  }
+
+  
+}
