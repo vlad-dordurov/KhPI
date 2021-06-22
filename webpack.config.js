@@ -11,6 +11,7 @@ const config = {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
   },
+  devtool: 'eval-source-map',
   module: {
     rules: [{ 
         test: /\.(js|jsx)$/, 
@@ -21,8 +22,12 @@ const config = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       { 
-        test: /\.(jpg|jpeg|png|svg)$/,
+        test: /\.(jpg|jpeg|png)$/,
         use: ["file-loader"] 
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
       },
     ],
   },
@@ -31,7 +36,8 @@ const config = {
     modules: [path.resolve(__dirname, "src", "frontAdminPanel"), "node_modules"]
   },
   devServer: {
-    contentBase: path.join(__dirname, "src", "frontAdminPanel")
+    contentBase: path.join(__dirname, "src", "frontAdminPanel"),
+    historyApiFallback: true
   },
   plugins: [
     new FaviconsWebpackPlugin(path.join(__dirname, "public", "logo.ico")),
