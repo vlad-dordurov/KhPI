@@ -35,9 +35,9 @@ export const Signin = () => {
           <img src={LogoNtu} alt="logo NTU" />
         </div>
         <div className="signin-text">
-          Авторизация
+          Авторизація
           <br />
-          администратора НТУ “ХПИ“
+          адміністратора НТУ “ХПІ”
         </div>
 
         <Form
@@ -79,7 +79,7 @@ export const Signin = () => {
                 disabled={submitting}
                 className="signin-button"
               >
-                Войти
+                Увійти
               </button>
             </form>
           )}
