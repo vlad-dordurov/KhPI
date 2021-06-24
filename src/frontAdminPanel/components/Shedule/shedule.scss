@@ -1,0 +1,53 @@
+.shedule {
+  box-sizing: border-box;
+  padding: 15px;
+  width: 100%;
+  &-control {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-save-button {
+    width: 100px;
+    height: 40px;
+    background-color: #a11a16;
+    color: white;
+    font-family: Arial;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+
+.week-control {
+  display: flex;
+
+  .week-title {
+    font-family: Arial;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+    text-align: left;
+    color: #C4C4C4;
+
+    &--selected {
+      color: #A11A16;
+    }
+  }
+}
+
+.course-control {
+  display: flex;
+  align-items: center;
+  margin-left: 35px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: left;
+
+  color: #a11a16;
+}
