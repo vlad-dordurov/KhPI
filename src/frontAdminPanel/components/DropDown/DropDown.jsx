@@ -40,7 +40,9 @@ export const DropDown = ({ options, onChange }) => {
 
 DropDown.propTypes = {
   onChange: func.isRequired,
-  options: arrayOf(shape({
-    value: string.isRequired,
-  })),
+  options: arrayOf(
+    shape({
+      value: string.isRequired,
+    })
+  ),
 };

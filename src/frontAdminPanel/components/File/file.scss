@@ -1,0 +1,21 @@
+.file {
+  display: flex;
+    flex-direction: column;
+  &-img {
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgb(75, 75, 68);
+    background-size: contain;
+    margin-right: 10px;
+  }
+
+  &-name {
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 5px;
+    text-overflow: ellipsis;
+    width: 85px;
+  }
+}

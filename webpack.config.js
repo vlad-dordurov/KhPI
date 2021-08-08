@@ -33,6 +33,7 @@ const config = {
   },
   mode: process.env.NODE_ENV || "development",
   resolve: {
+    extensions: ['.js', '.jsx'],
     modules: [path.resolve(__dirname, "src", "frontAdminPanel"), "node_modules"]
   },
   devServer: {

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
 
-import { SheduleTable } from '../../components';
+import { SheduleTable } from '../SheduleTable';
 import { CustomCheckBox } from '../CustomCheckBox';
 import { DropDown } from '../DropDown';
+import { Button } from '../Button';
 
 import './shedule.scss';
 
@@ -20,10 +21,10 @@ const getGroup = () => [
   { value: 'І218д' },
 ];
 
-export const Shedule = () => {
+export const ShedulePage = () => {
   const [isEvenWeek, setIsEvenWeek] = useState(false);
   const [courseList, setCourseList] = useState([
-    { value: '1'},
+    { value: '1' },
     { value: '2' },
     { value: '3' },
     { value: '4' },
@@ -74,15 +75,13 @@ export const Shedule = () => {
             <div className="course-control">
               <div>Група</div>
               {groupList && (
-                 <DropDown options={groupList} onChange={setSelectedGroup} /> 
+                <DropDown options={groupList} onChange={setSelectedGroup} />
               )}
             </div>
           </div>
         </div>
         <div>
-          <button className="shedule-save-button" onClick={save}>
-            Зберегти
-          </button>
+          <Button name="Зберегти" onClick={save} />
         </div>
       </div>
       <SheduleTable data={data} onChange={setData} />
