@@ -84,13 +84,15 @@ TableRow.propTypes = {
   onChange: func.isRequired,
   data: shape({
     dayName: string.isRequired,
-    lessons: arrayOf(shape({
-      time: string.isRequired,
-      lessonName: string.isRequired,
-      type: string.isRequired,
-      teacher: string.isRequired,
-      cabinet: string.isRequired,
-      building: string.isRequired,
-    })),
+    lessons: arrayOf(
+      shape({
+        time: string.isRequired,
+        lessonName: string.isRequired,
+        type: string.isRequired,
+        teacher: string.isRequired,
+        cabinet: string.isRequired,
+        building: string.isRequired,
+      })
+    ),
   }),
 };

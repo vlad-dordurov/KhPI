@@ -19,15 +19,19 @@ export const SheduleTable = ({ data, onChange }) => {
 
 SheduleTable.propTypes = {
   onChange: func.isRequired,
-  data: arrayOf(shape({
-    dayName: string.isRequired,
-    lessons: arrayOf(shape({
-      time: string.isRequired,
-      lessonName: string.isRequired,
-      type: string.isRequired,
-      teacher: string.isRequired,
-      cabinet: string.isRequired,
-      building: string.isRequired,
-    })),
-  })),
+  data: arrayOf(
+    shape({
+      dayName: string.isRequired,
+      lessons: arrayOf(
+        shape({
+          time: string.isRequired,
+          lessonName: string.isRequired,
+          type: string.isRequired,
+          teacher: string.isRequired,
+          cabinet: string.isRequired,
+          building: string.isRequired,
+        })
+      ),
+    })
+  ),
 };
