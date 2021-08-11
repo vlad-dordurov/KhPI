@@ -10,7 +10,7 @@ import CancelIcon from '../../assets/icons/cancel.svg';
 
 import './news.scss';
 import { useDispatch } from 'react-redux';
-import { shape, string, ArraOf } from 'prop-types';
+import { shape, string, arrayOf } from 'prop-types';
 
 export const News = ({ news }) => {
   const [isEditabel, setIsEditable] = useState(false);
@@ -109,7 +109,7 @@ export const News = ({ news }) => {
 News.propTypes = {
   news: shape({
     id: string.isRequared,
-    files: ArraOf().isRequared,
+    files: arrayOf().isRequared,
     description: string.isRequared,
   }).isRequared,
 };
