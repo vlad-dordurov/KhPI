@@ -1,0 +1,89 @@
+.document {
+  padding: 15px 30px;
+  background: rgb(148, 148, 148);
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  
+  &-info {
+    flex: 9;
+    text-align: center;
+    
+
+    &-header, &-data {
+      display: flex;
+      div + div {
+        margin-left: 16px;
+      }
+    }
+
+    &-header {
+      font-size: 24px;
+      font-weight: 700;
+      color: rgb(161, 26, 22);
+      margin-bottom: 5px;
+
+      div {
+        line-height: 20px;
+      }
+    }
+
+    &-data {
+      div {
+        font-size: 22px;
+        height: 30px;
+        line-height: 30px;
+        background-color: white;
+        overflow: hidden;
+      }
+    }
+  }
+
+  &-status {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    margin-left: 10px;
+
+    label {
+      margin: 0 5px;
+    }
+  }
+
+  &-fullName {
+    flex: 3;
+  }
+  &-group {
+    flex: 1;
+  }
+  &-learnType {
+    flex: 1;
+  }
+  &-documentType {
+    flex: 2;
+  }
+  &-institution {
+    flex: 3;
+  }
+}
+
+.notDoneIcon {
+  position: relative;
+  width: 27px;
+  height: 27px;
+  }
+
+  .notDoneIcon:before, .notDoneIcon:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 28px;
+  width: 2px;
+  background-color: rgb(161, 26, 22);
+  }
+  .notDoneIcon:before {
+  transform: rotate(45deg);
+  }
+  .notDoneIcon:after {
+  transform: rotate(-45deg);
+  }

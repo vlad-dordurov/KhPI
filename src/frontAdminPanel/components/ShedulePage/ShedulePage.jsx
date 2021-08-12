@@ -66,7 +66,7 @@ export const ShedulePage = () => {
         <div>
           <div className="week-control">
             <div className={oddWeekClass}>Непарний тиждень</div>
-            <CustomCheckBox onChange={handleCheckBox} />
+            <CustomCheckBox onChange={handleCheckBox} isChecked={isEvenWeek}/>
             <div className={evenWeekClass}>Парний тиждень</div>
             <div className="course-control">
               <div>Курс</div>
