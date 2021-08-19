@@ -7,37 +7,28 @@ import './pollForm.scss';
 import { File } from '../File';
 import { DropDownWithCheckBox } from '../DropDownWithCheckBox';
 import { useSelector } from 'react-redux';
-import { getDvvsSelector } from '../../selectors/dvvs';
-import { getPracticesSelector } from '../../selectors/practices';
-import { getDualsSelector } from '../../selectors/duals';
 import {
   addPractice,
   removePractice,
   updatePractice,
 } from '../../store/practices/action';
+import { getDvvsSelector } from '../../selectors/dvv';
+import { getPracticesSelector } from '../../selectors/practices';
+import { getDualsSelector } from '../../selectors/dual';
 
 const eventTypes = {
   dvv: {
     selector: getDvvsSelector,
-    removeMessage: 'Ви впевнени що хочете видалити цей предмет?',
-    onAdd: () => {},
-    onRemove: () => {},
-    onSave: () => {},
+    title: 'Список десциплін',
   },
   practice: {
     selector: getPracticesSelector,
     removeMessage: 'Ви впевнені що хочете видалити цю практику?',
-    onAdd: addPractice,
-    onRemove: removePractice,
-    onSave: updatePractice,
     title: 'Список практик',
   },
   dual: {
     selector: getDualsSelector,
-    removeMessage: 'Ви впевнени що хочете видалити цей предмет?',
-    onAdd: () => {},
-    onRemove: () => {},
-    onSave: () => {},
+    title: 'Список дуальних освіт',
   },
 };
 
@@ -92,7 +83,6 @@ export const PollForm = ({ setFormData, data, type }) => {
   );
 
   useEffect(() => {
-    console.log(eventsForDropDown);
     setFormData({
       ...data,
       title,

@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 } from 'uuid';
+import { getDualPollsSelector } from '../../selectors/dualPolls';
+import { getDvvPollsSelector } from '../../selectors/dvvPolls';
 import { getPracticePollsSelector } from '../../selectors/practicePolls';
+import {
+  addDualPoll,
+  removeDualPoll,
+  updateDualPoll,
+} from '../../store/dualPolls/action';
+import {
+  addDvvPoll,
+  removeDvvPoll,
+  updateDvvPoll,
+} from '../../store/dvvPolls/action';
 import {
   addPracticePoll,
   removePracticePoll,
@@ -9,17 +21,16 @@ import {
 } from '../../store/practicePolls/action';
 import { Button } from '../Button';
 import { CustomDialog } from '../CustomDialog';
-import { NotificationItem } from '../NotificationItem';
 import { PollForm } from '../PollForm';
 import { PollItem } from '../PollItem';
 
 const eventTypes = {
   dvv: {
-    // selector: getDvvsSelector,
+    selector: getDvvPollsSelector,
     removeMessage: 'Ви впевнени що хочете видалити цей предмет?',
-    onAdd: () => {},
-    onRemove: () => {},
-    onSave: () => {},
+    onAdd: addDvvPoll,
+    onRemove: removeDvvPoll,
+    onSave: updateDvvPoll,
   },
   practice: {
     selector: getPracticePollsSelector,
@@ -30,11 +41,11 @@ const eventTypes = {
     title: 'Список практик',
   },
   dual: {
-    // selector: getDualsSelector,
+    selector: getDualPollsSelector,
     removeMessage: 'Ви впевнени що хочете видалити цей предмет?',
-    onAdd: () => {},
-    onRemove: () => {},
-    onSave: () => {},
+    onAdd: addDualPoll,
+    onRemove: removeDualPoll,
+    onSave: updateDualPoll,
   },
 };
 
@@ -67,7 +78,6 @@ export const PollsTab = ({ type }) => {
 
   const onSave = (data) => {
     setEditablePoll(null);
-
     if (data.id) {
       dispatch(updatePoll(data));
     } else {
@@ -87,7 +97,7 @@ export const PollsTab = ({ type }) => {
   };
 
   const onOpenStats = () => {
-    console.log('stats');
+    
   };
 
   const onRemoveFromDialog = () => {
@@ -113,7 +123,7 @@ export const PollsTab = ({ type }) => {
         onSave={onSave}
         isOpen={isOpenDialog}
       >
-        <PollForm setFormData={onSave} data={editablePoll} type="practice" />
+        <PollForm setFormData={onSave} data={editablePoll} type={type} />
       </CustomDialog>
     </div>
   );

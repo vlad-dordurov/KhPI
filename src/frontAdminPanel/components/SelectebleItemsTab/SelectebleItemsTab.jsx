@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { v4 } from 'uuid';
-import { getDualsSelector } from '../../selectors/duals';
-import { getDvvsSelector } from '../../selectors/dvvs';
+import { getDualsSelector } from '../../selectors/dual';
+import { getDvvsSelector } from '../../selectors/dvv';
 import { getPracticesSelector } from '../../selectors/practices';
+import { addDual, removeDual, updateDual } from '../../store/dual/action';
+import { addDvv, removeDvv, updateDvv } from '../../store/dvv/action';
 import {
   addPractice,
   removePractice,
@@ -18,9 +20,9 @@ const eventTypes = {
   dvv: {
     selector: getDvvsSelector,
     removeMessage: 'Ви впевнени що хочете видалити цей предмет?',
-    onAdd: () => {},
-    onRemove: () => {},
-    onSave: () => {},
+    onAdd: addDvv,
+    onRemove: removeDvv,
+    onSave: updateDvv,
   },
   practice: {
     selector: getPracticesSelector,
@@ -32,9 +34,9 @@ const eventTypes = {
   dual: {
     selector: getDualsSelector,
     removeMessage: 'Ви впевнени що хочете видалити цей предмет?',
-    onAdd: () => {},
-    onRemove: () => {},
-    onSave: () => {},
+    onAdd: addDual,
+    onRemove: removeDual,
+    onSave: updateDual,
   },
 };
 

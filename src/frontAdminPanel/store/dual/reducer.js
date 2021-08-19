@@ -1,35 +1,27 @@
-import {
-  UPDATE_NOTIFICATION,
-  ADD_NOTIFICATION,
-  REMOVE_NOTIFICATION,
-} from './actionTypes.js';
+import { UPDATE_DUAL, ADD_DUAL, REMOVE_DUAL } from './actionTypes.js';
 
 const initialState = {
-  notificationList: [],
+  dualList: [],
 };
 
-export const notificationsReducer = (state = initialState, action) => {
+export const dualsReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case ADD_NOTIFICATION:
+    case ADD_DUAL:
       return {
-        notificationList: [payload.notification, ...state.notificationList],
+        dualList: [payload.dual, ...state.dualList],
       };
-    case UPDATE_NOTIFICATION:
-      const notificationList = state.notificationList.map((notification) =>
-        notification.id !== payload.notification.id
-          ? notification
-          : payload.notification
+    case UPDATE_DUAL:
+      const dualList = state.dualList.map((dual) =>
+        dual.id !== payload.dual.id ? dual : payload.dual
       );
       return {
-        notificationList: [...notificationList],
+        dualList: [...dualList],
       };
-    case REMOVE_NOTIFICATION:
+    case REMOVE_DUAL:
       return {
-        notificationList: state.notificationList.filter(
-          ({ id }) => id !== payload.id
-        ),
+        dualList: state.dualList.filter(({ id }) => id !== payload.id),
       };
     default:
       return state;
