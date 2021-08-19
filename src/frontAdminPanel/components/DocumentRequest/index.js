@@ -1,1 +1,1 @@
-export { DocumentRequest } from "./DocumentRequest";
+export { DocumentRequest } from './DocumentRequest';

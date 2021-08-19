@@ -1,1 +1,2 @@
-export const getNotificationsSelector = (state) => state.notifications.notificationList;
+export const getNotificationsSelector = (state) =>
+  state.notifications.notificationList;

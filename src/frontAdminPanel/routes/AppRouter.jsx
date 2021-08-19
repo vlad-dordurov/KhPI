@@ -5,6 +5,7 @@ import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
 import { Signin, ShedulePage, NewsPage, NotificationPage } from '../components';
 import { DocumentPage } from '../components/DocumentPage';
+import { PracticePage } from '../components/PracticePage';
 
 const MockPage = () => {
   return <div>1</div>;
@@ -19,7 +20,7 @@ export const AppRouter = () => {
       <PrivateRoute component={NotificationPage} path="/notifications" exact />
       <PrivateRoute component={MockPage} path="/dvv" exact />
       <PrivateRoute component={MockPage} path="/dualeducation" exact />
-      <PrivateRoute component={MockPage} path="/project" exact />
+      <PrivateRoute component={PracticePage} path="/project" exact />
       <PrivateRoute component={DocumentPage} path="/documentation" exact />
     </Switch>
   );

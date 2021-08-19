@@ -5,6 +5,8 @@ import { persistReducer } from 'redux-persist';
 import { authReducer } from './auth/reducer';
 import { newsReducer } from './news/reducer';
 import { notificationsReducer } from './notifications/reducer';
+import { practicesReducer } from './practices/reducer';
+import { practicePollsReducer } from './practicePolls/reducer';
 
 const authPersistConfig = {
   key: 'auth',
@@ -14,5 +16,7 @@ const authPersistConfig = {
 export const reducers = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
   news: newsReducer,
-  notifications: notificationsReducer
+  notifications: notificationsReducer,
+  practices: practicesReducer,
+  practicePolls: practicePollsReducer,
 });

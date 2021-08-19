@@ -1,12 +1,10 @@
-import React from "react";
+import React from 'react';
 import { func, string, shape, number } from 'prop-types';
-import { Button } from "../Button";
+import { Button } from '../Button';
 
+import './notificationItem.scss';
 
-import "./notificationItem.scss";
-
-export const NotificationItem = ({ notification, index, onRemove, onEdit}) => {
-
+export const NotificationItem = ({ notification, index, onRemove, onEdit }) => {
   return (
     <div className="notification">
       <div className="notification-number">№{index}</div>
@@ -18,7 +16,7 @@ export const NotificationItem = ({ notification, index, onRemove, onEdit}) => {
       </div>
     </div>
   );
-}
+};
 
 NotificationItem.propTypes = {
   notification: shape({
@@ -29,4 +27,4 @@ NotificationItem.propTypes = {
   index: number.isRequired,
   onRemove: func.isRequired,
   onEdit: func.isRequired,
-}
+};
