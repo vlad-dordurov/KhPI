@@ -1,36 +1,32 @@
-import {
-  UPDATE_NOTIFICATION,
-  ADD_NOTIFICATION,
-  REMOVE_NOTIFICATION,
-} from './actionTypes.js';
+import { UPDATE_DUAL, ADD_DUAL, REMOVE_DUAL } from './actionTypes.js';
 import moment from 'moment';
 
-export const addNotification = (notification) => async (dispatch) => {
+export const addDual = (dual) => async (dispatch) => {
   try {
     dispatch({
-      type: ADD_NOTIFICATION,
+      type: ADD_DUAL,
       payload: {
-        notification: { ...notification, date: moment().format('L') },
+        dual: { ...dual, date: moment().format('L') },
       },
     });
   } catch (e) {}
 };
 
-export const updateNotification = (notification) => async (dispatch) => {
+export const updateDual = (dual) => async (dispatch) => {
   try {
     dispatch({
-      type: UPDATE_NOTIFICATION,
+      type: UPDATE_DUAL,
       payload: {
-        notification,
+        dual,
       },
     });
   } catch (e) {}
 };
 
-export const removeNotification = (id) => async (dispatch) => {
+export const removeDual = (id) => async (dispatch) => {
   try {
     dispatch({
-      type: REMOVE_NOTIFICATION,
+      type: REMOVE_DUAL,
       payload: {
         id,
       },

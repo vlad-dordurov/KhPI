@@ -1,35 +1,27 @@
-import {
-  UPDATE_NOTIFICATION,
-  ADD_NOTIFICATION,
-  REMOVE_NOTIFICATION,
-} from './actionTypes.js';
+import { UPDATE_DVV, ADD_DVV, REMOVE_DVV } from './actionTypes.js';
 
 const initialState = {
-  notificationList: [],
+  dvvList: [],
 };
 
-export const notificationsReducer = (state = initialState, action) => {
+export const dvvsReducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case ADD_NOTIFICATION:
+    case ADD_DVV:
       return {
-        notificationList: [payload.notification, ...state.notificationList],
+        dvvList: [payload.dvv, ...state.dvvList],
       };
-    case UPDATE_NOTIFICATION:
-      const notificationList = state.notificationList.map((notification) =>
-        notification.id !== payload.notification.id
-          ? notification
-          : payload.notification
+    case UPDATE_DVV:
+      const dvvList = state.dvvList.map((dvv) =>
+        dvv.id !== payload.dvv.id ? dvv : payload.dvv
       );
       return {
-        notificationList: [...notificationList],
+        dvvList: [...dvvList],
       };
-    case REMOVE_NOTIFICATION:
+    case REMOVE_DVV:
       return {
-        notificationList: state.notificationList.filter(
-          ({ id }) => id !== payload.id
-        ),
+        dvvList: state.dvvList.filter(({ id }) => id !== payload.id),
       };
     default:
       return state;
