@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { CustomCheckBox } from "../CustomCheckBox/CustomCheckBox";
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { CustomCheckBox } from '../CustomCheckBox/CustomCheckBox';
 import DoneIcon from '../../assets/icons/done.svg';
 
-import "./documentRequest.scss";
+import './documentRequest.scss';
 
 export const DocumentRequest = ({ document }) => {
-  const { id, group, fullName, learnType, documentType, institution, isReady } = document;
+  const { id, group, fullName, learnType, documentType, institution, isReady } =
+    document;
   const [isDocumentReady, setIsDocumentReady] = useState(isReady);
   const dispatch = useDispatch();
 
   useEffect(() => {
     // dispatch(updateDocumentInfo(id, isDocumentReady));
-  }, [isDocumentReady])
+  }, [isDocumentReady]);
 
   return (
     <div className="document">
@@ -33,11 +34,13 @@ export const DocumentRequest = ({ document }) => {
         </div>
       </div>
       <div className="document-status">
-        <div className="notDoneIcon">
-        </div>
-        <CustomCheckBox onChange={() => setIsDocumentReady((prev) => !prev)} isChecked={isDocumentReady}/>
+        <div className="notDoneIcon"></div>
+        <CustomCheckBox
+          onChange={() => setIsDocumentReady((prev) => !prev)}
+          isChecked={isDocumentReady}
+        />
         <DoneIcon />
       </div>
     </div>
   );
-}
+};

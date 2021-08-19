@@ -1,1 +1,1 @@
-export { NotificationForm } from "./NotificationForm";
+export { NotificationForm } from './NotificationForm';

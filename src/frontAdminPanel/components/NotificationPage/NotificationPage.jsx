@@ -37,7 +37,7 @@ export const NotificationPage = () => {
 
   const onSave = (data) => {
     setEditableNotification(null);
-    console.log(data);
+
     if (data.id) {
       dispatch(updateNotification(data));
     } else {
@@ -57,10 +57,8 @@ export const NotificationPage = () => {
   };
 
   const onRemoveFromDialog = () => {
-    editableNotification
-      ? onRemove(editableNotification.id)
-      : handleClose();
-  }
+    editableNotification ? onRemove(editableNotification.id) : handleClose();
+  };
 
   return (
     <div className="newsPage">

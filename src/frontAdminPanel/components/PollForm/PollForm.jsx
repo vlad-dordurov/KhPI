@@ -3,11 +3,45 @@ import { DropzoneDialog } from 'material-ui-dropzone';
 import { func, array, string, shape, bool, arrayOf } from 'prop-types';
 
 import AddFileIcon from '../../assets/icons/anchor.svg';
-import './notificationForm.scss';
+import './pollForm.scss';
 import { File } from '../File';
 import { DropDownWithCheckBox } from '../DropDownWithCheckBox';
+import { useSelector } from 'react-redux';
+import { getDvvsSelector } from '../../selectors/dvvs';
+import { getPracticesSelector } from '../../selectors/practices';
+import { getDualsSelector } from '../../selectors/duals';
+import {
+  addPractice,
+  removePractice,
+  updatePractice,
+} from '../../store/practices/action';
 
-export const NotificationForm = ({ setFormData, data }) => {
+const eventTypes = {
+  dvv: {
+    selector: getDvvsSelector,
+    removeMessage: 'Ви впевнени що хочете видалити цей предмет?',
+    onAdd: () => {},
+    onRemove: () => {},
+    onSave: () => {},
+  },
+  practice: {
+    selector: getPracticesSelector,
+    removeMessage: 'Ви впевнені що хочете видалити цю практику?',
+    onAdd: addPractice,
+    onRemove: removePractice,
+    onSave: updatePractice,
+    title: 'Список практик',
+  },
+  dual: {
+    selector: getDualsSelector,
+    removeMessage: 'Ви впевнени що хочете видалити цей предмет?',
+    onAdd: () => {},
+    onRemove: () => {},
+    onSave: () => {},
+  },
+};
+
+export const PollForm = ({ setFormData, data, type }) => {
   const [isOpenDropZone, setIsOpenDropZone] = useState(false);
   const [files, setFiles] = useState(data ? data.files : []);
   const [title, setTitle] = useState(data ? data.title : '');
@@ -43,7 +77,22 @@ export const NotificationForm = ({ setFormData, data }) => {
         ]
   );
 
+  const [eventList, setEventList] = useState(
+    useSelector(eventTypes[type].selector)
+  );
+
+  const [eventsForDropDown, setEventsForDropDown] = useState(
+    data
+      ? data.eventList
+      : eventList.map(({ title, id }) => ({
+          id,
+          value: title,
+          isChecked: false,
+        }))
+  );
+
   useEffect(() => {
+    console.log(eventsForDropDown);
     setFormData({
       ...data,
       title,
@@ -52,8 +101,18 @@ export const NotificationForm = ({ setFormData, data }) => {
       cpecialityList,
       courseList,
       groupList,
+      eventList: eventsForDropDown,
+      eventType: type,
     });
-  }, [description, title, files, cpecialityList, courseList, groupList]);
+  }, [
+    description,
+    title,
+    files,
+    cpecialityList,
+    courseList,
+    groupList,
+    eventsForDropDown,
+  ]);
 
   const handleOpenDropZone = () => {
     setIsOpenDropZone(true);
@@ -77,34 +136,38 @@ export const NotificationForm = ({ setFormData, data }) => {
   };
 
   return (
-    <div className="notificationForm">
-      <div className="notificationForm-checkboxList">
-        <div className="notificationForm-checkboxItem">
+    <div className="pollForm">
+      <div className="pollForm-checkboxList">
+        <div className="pollForm-checkboxItem">
           <DropDownWithCheckBox
             title="Спеціальність"
             options={cpecialityList}
             onChange={setCpecialityList}
           />
         </div>
-        <div className="notificationForm-checkboxItem">
+        <div className="pollForm-checkboxItem">
           <DropDownWithCheckBox
             title="Курс"
             options={courseList}
             onChange={setCourseList}
           />
         </div>
-        <div className="notificationForm-checkboxItem">
+        <div className="pollForm-checkboxItem">
           <DropDownWithCheckBox
             title="Группа"
             options={groupList}
             onChange={setGroupeList}
           />
         </div>
-        <span className="news-control" onClick={handleOpenDropZone}>
-          <AddFileIcon />
-        </span>
+        <div className="pollForm-checkboxItem">
+          <DropDownWithCheckBox
+            title={eventTypes[type].title}
+            options={eventsForDropDown}
+            onChange={setEventsForDropDown}
+          />
+        </div>
       </div>
-      <div className="notificationForm-inputs">
+      <div className="pollForm-inputs">
         <input
           type="text"
           placeholder="Заголовок"
@@ -117,8 +180,11 @@ export const NotificationForm = ({ setFormData, data }) => {
           onChange={handleChangeDescription}
           value={description}
         />
+        <span className="news-control" onClick={handleOpenDropZone}>
+          <AddFileIcon />
+        </span>
       </div>
-      <div className="notificationForm-fileList">
+      <div className="pollForm-fileList">
         {files.map((file, i) => (
           <File data={file} key={i} />
         ))}
@@ -134,7 +200,7 @@ export const NotificationForm = ({ setFormData, data }) => {
   );
 };
 
-NotificationForm.propTypes = {
+PollForm.propTypes = {
   data: shape({
     files: array,
     title: string,

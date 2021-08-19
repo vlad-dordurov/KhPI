@@ -9,17 +9,17 @@ import classNames from 'classnames';
 export const Button = ({ name, className = '', onClick, type }) => {
   const getIcon = () => {
     switch (type) {
-      case "edit":
-        return <EditIcon />
-      case "remove":
-        return <CancelIcon />
-      case "close":
-        return <CancelIcon />
+      case 'edit':
+        return <EditIcon />;
+      case 'remove':
+        return <CancelIcon />;
+      case 'close':
+        return <CancelIcon />;
     }
-  }
+  };
 
   const classButton = classNames(className, {
-    'button': !type,
+    button: !type,
   });
 
   return (
@@ -33,5 +33,5 @@ Button.propTypes = {
   name: string,
   className: string,
   onClick: func.isRequired,
-  type: string
+  type: string,
 };
